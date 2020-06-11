@@ -17,3 +17,11 @@ class Song < ActiveRecord::Base
     end
   end
 end
+
+it '#drake_made_this' do
+  expect(@song.artist).to eq(nil)
+
+  @song.drake_made_this
+
+  expect(@song.artist).to be_a(Artist)
+  expect(@song.artist.name).to eq("Drake")
